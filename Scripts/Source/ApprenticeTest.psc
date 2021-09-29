@@ -15,6 +15,8 @@ endFunction
 function BeforeEach()
     Apprentice.ResetAllTrainingStatus()
     Apprentice.Apprentice_Settings_NotificationOption.SetValueInt(0) ; Disable messageboxes
+    Apprentice.ClearShownMessages()
+    Apprentice.SaveShownMessages = true
 endFunction
 
 Spell function AlterationSpell()
