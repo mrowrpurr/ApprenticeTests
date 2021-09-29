@@ -2,25 +2,19 @@ scriptName ApprenticeTest extends SkyUnitTest hidden
 {Base class for all Apprentice SkyUnit tests}
 
 Actor property Player auto
-ApprenticePlayer property ApprenticePlayerScript auto
+ApprenticePlayer property Apprentice auto
+ApprenticeMCM property MCM auto
 
 function BeforeAll()
     Player = Game.GetPlayer()
-    ApprenticePlayerScript = ApprenticePlayer.GetInstance()
+    Apprentice = ApprenticePlayer.GetInstance()
+    MCM = Game.GetFormFromFile(0xd62, "Apprentice.esp") as ApprenticeMCM
 endFunction
 
 ; Resets the training status before each test
 function BeforeEach()
-    ApprenticePlayerScript.ResetAllTrainingStatus()
-    ApprenticePlayerScript.Apprentice_Settings_NotificationOption.SetValueInt(0) ; Disable messageboxes
-endFunction
-
-ApprenticeMCM function MCM()
-    return Game.GetFormFromFile(0xd62, "Apprentice.esp") as ApprenticeMCM
-endFunction
-
-ApprenticePlayer function Apprentice()
-    return MCM().GetAliasByName("PlayerRef") as ApprenticePlayer
+    Apprentice.ResetAllTrainingStatus()
+    Apprentice.Apprentice_Settings_NotificationOption.SetValueInt(0) ; Disable messageboxes
 endFunction
 
 Spell function AlterationSpell()

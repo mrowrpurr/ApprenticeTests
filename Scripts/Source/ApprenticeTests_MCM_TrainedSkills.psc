@@ -1,0 +1,1 @@
+scriptName ApprenticeTests_MCM_TrainedSkills extends Quest  
